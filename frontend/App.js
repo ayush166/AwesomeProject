@@ -147,6 +147,12 @@
 // // //     </AuthProvider>
 // // //   );
 // // // }
+/**
+ * App is the root component of the React application, setting up the
+ * navigation container and authentication provider.
+ * 
+ * @returns {JSX.Element} The React component to be rendered.
+ */
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from "@navigation/AppNavigator"
