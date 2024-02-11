@@ -1,18 +1,23 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DashboardScreen from '../screens/DashboardScreen';
-import StatsScreen from '../screens/StatsScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import { ROUTES } from './routes';
+import SignInScreen from '../screens/SignInScreen';
+import { useAuthContext } from '../hooks/useAuth';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = () => (
-  <Stack.Navigator initialRouteName={ROUTES.DASHBOARD}>
-    <Stack.Screen name={ROUTES.DASHBOARD} component={DashboardScreen} />
-    <Stack.Screen name={ROUTES.STATS} component={StatsScreen} />
-    <Stack.Screen name={ROUTES.SETTINGS} component={SettingsScreen} />
-  </Stack.Navigator>
-);
+const AppNavigator = () => {
+  const { authTokens } = useAuthContext();
+
+  return (
+    <Stack.Navigator>
+      {authTokens ? (
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+      ) : (
+        <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerShown: false }} />
+      )}
+    </Stack.Navigator>
+  );
+};
 
 export default AppNavigator;

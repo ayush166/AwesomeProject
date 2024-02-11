@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-//form controls using InputField and toggle switches.
+// src/screens/SettingsScreen.js
+// form controls using `InputField` and toggle switches.
 const SettingsScreen = () => (
-  <View>
-    <Text>Welcome to MindfulTech</Text>
-    <Text>Settings</Text>
-  </View>
+<View>
+<Text>Welcome to MindfulTech</Text>
+
+<Text>Settings</Text>
+</View>
 );
 
 export default SettingsScreen;

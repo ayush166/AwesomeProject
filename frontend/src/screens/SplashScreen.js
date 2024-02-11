@@ -1,11 +1,26 @@
-import React from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
-const SplashScreen = () => {
+import React, { useEffect, useContext } from 'react';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { useAuthContext } from '../hooks/useAuth';
+
+
+const SplashScreen = ({ navigation }) => {
+  const { authTokens } = useAuthContext();
+
+  useEffect(() => {
+    if (authTokens) {
+     
+      navigation.replace('Dashboard');
+    } else {
+      
+      navigation.replace('SignIn');
+    }
+  }, [authTokens, navigation]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>MindfulTech</Text>
       <ActivityIndicator size="large" />
+      <Text>Loading...</Text>
     </View>
   );
 };
@@ -15,11 +30,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
   },
 });
 

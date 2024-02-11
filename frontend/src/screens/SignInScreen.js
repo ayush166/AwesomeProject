@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
+import { useAuthContext } from '../hooks/useAuth';
+
+
 
 const SignInScreen = ({ navigation }) => {
+  const { signIn } = useAuthContext();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to MindfulTech</Text>
-      <Button title="Sign In" onPress={() => {}} />
-      <Button title="Sign Up" onPress={() => {}} />
+      <Button title="Sign In" onPress={signIn} />
+      {/* Sign Up logic or navigation */}
     </View>
   );
 };

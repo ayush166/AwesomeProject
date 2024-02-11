@@ -1,11 +1,24 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "node-sdk-commonjs-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/descope/node-sdk.git"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "generateCerts": "test -f ./server.key && test -f ./server.crt || openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj '/C=US/ST=California/L=San Francisco/O=Descope/CN=localhost' -keyout ./server.key -out ./server.crt"
+    },
+    "author": "descope",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/descope/node-sdk/issues"
+    },
+    "homepage": "https://github.com/descope/node-sdk#readme",
+    "dependencies": {
+        "@descope/node-sdk": "^1.6.3",
+        "express": "^4.18.1"
+    }
 }
