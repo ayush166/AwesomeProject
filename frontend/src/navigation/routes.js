@@ -1,5 +1,7 @@
 export const ROUTES = {
-    DASHBOARD: 'Dashboard',
-    STATS: 'Stats',
-    SETTINGS: 'Settings',
+    DASHBOARD: 'DASHBOARD',
+    STATS: 'STATS',
+    SETTINGS: 'SETTINGS',
+    SIGNIN:'SIGNIN',
+    SPLASH:'SPLASH'
   };
