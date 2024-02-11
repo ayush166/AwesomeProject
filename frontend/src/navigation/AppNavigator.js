@@ -27,6 +27,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Stats" component={StatsScreen} />
        
        
+       
       </>
     );
   } else {
