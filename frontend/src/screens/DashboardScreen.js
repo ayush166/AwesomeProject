@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, Button } from 'react-native';
-import { useAuthContext } from '../hooks/useAuth';
+import { useAuthContext } from '@hooks/useAuth';
+
 
 
 const DashboardScreen = () => {

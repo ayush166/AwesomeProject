@@ -11,7 +11,7 @@ const redirectUri = AuthSession.makeRedirectUri();
 export const useAuth = () => {
   const [authTokens, setAuthTokens] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Add an isLoading state
+  const [isLoading, setIsLoading] = useState(false); 
 
   const discovery = AuthSession.useAutoDiscovery(descopeUrl);
 
@@ -71,7 +71,7 @@ export const useAuth = () => {
   }, [promptAsync, request]);
 
   const logout = async () => {
-    setIsLoading(true); // Optionally set loading to true when starting the logout process
+    setIsLoading(true); // set loading to true when starting the logout process
     const revokeResponse = await AuthSession.revokeAsync({
       clientId: descopeProjectId,
       token: authTokens.refreshToken,
