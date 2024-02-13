@@ -1,16 +1,17 @@
-name: Codacy Analysis
+name: Build and Test
 
 on: [push, pull_request]
 
 jobs:
-  codacy-analysis:
+  build-and-test:
     runs-on: ubuntu-latest
+
     steps:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Run Codacy Analysis CLI
-      uses: codacy/codacy-analysis-cli-action@master
-      with:
-        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        upload-results: true
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests with coverage
+      run: jest --coverage
