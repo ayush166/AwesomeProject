@@ -18,7 +18,7 @@
     "@react-navigation/stack": "^6.3.21",
     "core-js": "^3.35.1",
     "expo": "~50.0.6",
-    "expo-auth-session": "^5.4.0",
+    "expo-auth-session": "~5.4.0",
     "expo-status-bar": "~1.11.1",
     "expo-web-browser": "^12.8.2",
     "jwt-decode": "^4.0.0",
@@ -31,10 +31,13 @@
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
     "react-native-web": "~0.19.6",
-    "react-native-webview": "^13.7.1"
+    "react-native-webview": "^13.7.1",
+    "expo-crypto": "~12.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^12.4.3",
     "babel-plugin-module-resolver": "^5.0.0",
     "jest": "^29.7.0",
@@ -43,7 +46,10 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"]
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
+ 
   "private": true
 }

@@ -1,17 +1,31 @@
-name: Build and Test
+name: CI
 
+# Triggers the workflow on push or pull request events
 on: [push, pull_request]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
+    # Step to set up your project's environment, for example, installing dependencies
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    # Install dependencies (adjust for your project)
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests with coverage
-      run: jest --coverage
+    # Run tests and generate coverage report (adjust the command for your project)
+    - name: Run tests and generate coverage report
+      run: npm run test -- --coverage
+
+    # Upload coverage report to Codacy
+    - name: Codacy Coverage Reporter
+      env:
+        CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
