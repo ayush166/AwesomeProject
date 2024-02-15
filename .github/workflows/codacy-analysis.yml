@@ -14,11 +14,11 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'
+        node-version: '14'
 
     # Install dependencies (adjust for your project)
     - name: Install dependencies
-      run: npm install
+      run: npm ci
       working-directory: ./frontend
 
     # Run tests and generate coverage report (adjust the command for your project)
