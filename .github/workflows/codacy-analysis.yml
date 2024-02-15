@@ -18,14 +18,20 @@ jobs:
 
     # Install dependencies (adjust for your project)
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd frontend
+        npm install
 
     # Run tests and generate coverage report (adjust the command for your project)
     - name: Run tests and generate coverage report
-      run: npm run test -- --coverage
+      run: |
+        cd frontend
+        npm run test -- --coverage
 
     # Upload coverage report to Codacy
     - name: Codacy Coverage Reporter
       env:
         CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
-      run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+      run: |
+        cd frontend
+        bash <(curl -Ls https://coverage.codacy.com/get.sh)
