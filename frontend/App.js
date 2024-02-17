@@ -147,25 +147,25 @@
 // // //     </AuthProvider>
 // // //   );
 // // // }
-/**
- * App is the root component of the React application, setting up the
- * navigation container and authentication provider.
- * 
- * @returns {JSX.Element} The React component to be rendered.
- */
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from "@navigation/AppNavigator"
-import { AuthProvider } from '@hooks/useAuth';
-
-
+import AppNavigator from './src/navigation/AppNavigator';
+import { AuthProvider } from './src/hooks/useAuth';
+import { CONVEX_URL } from "@env";
+import { ConvexProvider, ConvexReactClient } from 'convex/react';
+const convex = new ConvexReactClient(CONVEX_URL, {
+  unsavedChangesWarning: false,
+});
 export default function App() {
+  
   return (
+    <ConvexProvider client={convex}>
     <AuthProvider >
       <NavigationContainer>
         <AppNavigator />
       </NavigationContainer>
     </AuthProvider>
+    </ConvexProvider>
   );
 }
 
@@ -225,6 +225,3 @@ export default function App() {
 //     justifyContent: 'center',
 //   },
 // });
-
-
-

@@ -1,12 +1,15 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DashboardScreen from '@screens/DashboardScreen';
+
 import SignInScreen from '@screens/SignInScreen';
 import SplashScreen from '@screens/SplashScreen';
 import { useAuthContext } from '@hooks/useAuth';
 import SettingsScreen from '@screens/SettingsScreen';
 import StatsScreen from '@screens/StatsScreen';
 import { ROUTES } from './routes';
+import DashboardScreen from '@screens/DashboardScreen';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +29,7 @@ const AppNavigator = () => {
         <Stack.Screen name={ROUTES.DASHBOARD} component={DashboardScreen} />
         <Stack.Screen name={ROUTES.SETTINGS} component={SettingsScreen} />
         <Stack.Screen name={ROUTES.STATS} component={StatsScreen} />
+        {/* <Stack.Screen name="CREATEGOAL" component={CreateGoalScreen} /> */}
       </>
     );
   } else {
